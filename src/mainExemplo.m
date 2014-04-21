@@ -10,4 +10,4 @@ legend('Monoalfabetica');
 title('Frequencia de Letras em Textos Cifrados');
 xlabel('letras');
 ylabel('percentagem de ocorrencia');
-print -dpng 'lab1.png'
+print -dpng 'graphs/lab1.png'

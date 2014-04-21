@@ -1,4 +1,3 @@
 .vagrant/
 /graphs/*
 !graphs/.gitkeep
-lab1.png
