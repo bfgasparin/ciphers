@@ -25,13 +25,9 @@ Go to the project directory into the VM:
 
 	$ cd /vagrant
 
-The source files are located at *src* directory:
+To run the octave files, execute:
 
-	$ cd src/
-
-Now, you can run the octave files running
-
-	$ octave <filename>
+	$ octave -p src/ src/<filename>
 
 
 [vagrant_url]: http://www.vagrantup.com
