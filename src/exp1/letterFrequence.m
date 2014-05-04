@@ -23,6 +23,8 @@ switch (cipher)
 	C = monoalfabeticaE(P,K);    
   case 'vigenere'
     C = vigenereE(P,K);    
+  case 'vigenereIncre'
+    C = vigenereIncreE(P,K);
   otherwise
     error ("The fisrt parameter must be either 'monoalfabetica', 'vigenere', 'vigenereIncre' or 'hill'");
 endswitch
