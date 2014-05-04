@@ -30,7 +30,7 @@ endswitch
 %saveText(C,'crimepunishment_Cifrado.txt');
 [rateMono character] = countCharacters(C);
 
-graphName = ["graphs/exp1/" cipher "_" K "_Frequence.png"];
+graphName = ["graphs/exp1/" cipher "_" K "_frequence.png"];
 
 plot([1:26],rateMono);
 legend([cipher]);
