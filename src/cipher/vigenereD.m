@@ -9,6 +9,7 @@ P = P(indexTexto);
 indexCaixaAlta = find((P>='A'&P<='Z'));
 P(indexCaixaAlta) = P(indexCaixaAlta) + ('a'-'A');
 
+
 tamChave = length(P);
 chaveAux = (mod([0:tamChave - 1], 3) + 1) * -1;
 
@@ -17,6 +18,7 @@ chaveAux(find(chaveAux == -2)) = K(2) - 'a';
 chaveAux(find(chaveAux == -3)) = K(3) - 'a';
 
 P = mod(P - 'a' - chaveAux, 26) + 'a';
+
 
 % Retorna para caixa alta
 P(indexCaixaAlta) = P(indexCaixaAlta) + ('A'-'a');

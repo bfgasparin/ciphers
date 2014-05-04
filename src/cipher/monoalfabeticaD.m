@@ -9,6 +9,7 @@ P = P(indexTexto);
 indexCaixaAlta = find((P>='A'&P<='Z'));
 P(indexCaixaAlta) = P(indexCaixaAlta) + ('a'-'A');
 
+
 Kdec = 'abcdefghijklmnopqrstuvwxyz';
 [aux index] = sort(K);
 Kdec = Kdec(index);
