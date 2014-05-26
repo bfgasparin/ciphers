@@ -16,7 +16,10 @@ argList = argv();
 cipher  = argList{1};
 K  = argList{2};
 
+K = [17 17 5; 21 18 21; 2 2 19];
+
 P = readText('Resources/files/exp1/notes.txt');
+% P = 'valdinei';
 
 switch (cipher)
   case 'monoalfabetica'
@@ -25,6 +28,8 @@ switch (cipher)
     C = vigenereE(P,K);    
   case 'vigenereIncre'
     C = vigenereIncreE(P,K);
+  case 'hill'
+    C = hillE(P,K);    
   otherwise
     error ("The fisrt parameter must be either 'monoalfabetica', 'vigenere', 'vigenereIncre' or 'hill'");
 endswitch
@@ -32,11 +37,11 @@ endswitch
 %saveText(C,'crimepunishment_Cifrado.txt');
 [rateMono character] = countCharacters(C);
 
-graphName = ["graphs/exp1/" cipher "_" K "_frequence.png"];
+graphName = ["graphs/exp1/" cipher "_"  "_frequence.png"];
 
 plot([1:26],rateMono);
 legend([cipher]);
-title(["Frequencia de Letras em Textos Cifrados \n K = '" K "'"]);
+title(["Frequencia de Letras em Textos Cifrados \n K = '" "'"]);
 xlabel('letras');
 ylabel('percentagem de ocorrencia');
 
