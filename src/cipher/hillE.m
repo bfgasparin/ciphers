@@ -11,16 +11,16 @@ P(indexCaixaAlta) = P(indexCaixaAlta) + ('a'-'A');
 
 disp(size(P));
 
+sizeP = size(P)(2);
+
 auxP = zeros(0,3);
 remain = 0;
 
 i = 1;
-while i <= size(P)(2)
-  if ((i + 2) > size(P)(2))
-  	remain = size(P)(2) - i;
-    disp(i);
-    disp(remain);
-  	auxP = [auxP; [P(i:i + remain) zeros(1, remain)]];
+while i <= sizeP
+  if ((i + 2) > sizeP)
+  	remain = i+2 - sizeP;
+  	auxP = [auxP; [P(i:sizeP) zeros(1, remain)]];
   else
 	auxP = [auxP; P(i:i+2)];
   endif
@@ -28,12 +28,7 @@ while i <= size(P)(2)
 end  
 
 P = (mod(K*(auxP' - 'a'), 26) + 'a')(:)';
-
-
-disp(size(P));
-disp(remain);
-P = P(1:size(P)(2) - remain); 
-disp(size(P));
+P = P(1:sizeP); 
 
 % Retorna para caixa alta
 P(indexCaixaAlta) = P(indexCaixaAlta) + ('A'-'a');
