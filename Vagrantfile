@@ -17,4 +17,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Provisioning with shell script
   config.vm.provision "shell", path: "Resources/scripts/bootstrap.sh"
+
+  #config.vm.provider "virtualbox" do |vb|
+  #	vb.gui = true
+  #end
 end
