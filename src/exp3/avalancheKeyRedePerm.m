@@ -1,3 +1,6 @@
+addpath('/vagrant/src/cipher');
+addpath('/vagrant/src/util');
+
 nBits = 8;
 nRepeticoes = 100;
 nRodadas = 25;
@@ -21,11 +24,17 @@ for rodadas=1:nRodadas
             matriz(bit,:) = matriz(bit,:) + xor(C1,C2);
         end
     end
-    disp (rodadas)
+    disp(rodadas)
     fflush(stdout);
     matriz = matriz/nRepeticoes;
     % Aqui, o max e' utilizado para garantir que log(0) = 0
     entropia(rodadas) = mean(mean((max(-log2(matriz).*matriz,0) + max(-log2(1-matriz).*(1-matriz),0))));
 end
 
+graphName = ["graphs/exp3/redePermKey.png"];
 plot(entropia)
+legend(["XOR"]);
+title(["Entropia"]);
+xlabel('rodadas');
+ylabel('Entropia');
+print(graphName);
