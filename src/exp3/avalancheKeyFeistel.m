@@ -10,7 +10,8 @@ entropia = zeros(1,nRodadas);
 for rodadas=1:nRodadas
     matriz = zeros(nBits,nBits);
     for repeticoes=1:nRepeticoes;
-        for bit=1:9
+        % iterates over the key length
+        for bit=1:9 
             P = rand(1,nBits)>.5; %obtem uma texto de bits aleatoria
 
             K1 = rand(3:3)>.5; %obtem uma chave de bits aleatorio
