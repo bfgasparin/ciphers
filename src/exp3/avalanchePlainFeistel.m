@@ -10,14 +10,14 @@ entropia = zeros(1,nRodadas);
 for rodadas=1:nRodadas
     matriz = zeros(nBits,nBits);
     for repeticoes=1:nRepeticoes;
-        for bit=1:9
-            K = rand(1,nBits)>.5; %obtem uma chave aleatoria
+        for bit=1:nBits
+            K = rand(3:3)>.5; %obtem uma chave aleatoria
 
             P1 = rand(1,nBits)>.5; %obtem um bloco de bits aleatorio
             C1 = feistel(P1,K,rodadas);
 
             P2 = P1;
-            P2(bit) = ~P2(bit); %inverte um dos bits da chave P1
+            P2(bit) = ~P2(bit); %inverte um dos bits da bloco de texto
             C2 = feistel(P2,K,rodadas);
 
             %computa o que mudou na cifra
