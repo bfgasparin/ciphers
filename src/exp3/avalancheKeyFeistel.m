@@ -14,7 +14,7 @@ for rodadas=1:nRodadas
         for bit=1:9 
             P = rand(1,nBits)>.5; %obtem uma texto de bits aleatoria
 
-            K1 = rand(3:3)>.5; %obtem uma chave de bits aleatorio
+            K1 = rand(16:16)>.5; %obtem uma chave de bits aleatorio
             C1 = feistel(P,K1,rodadas);
 
             K2 = K1;
@@ -32,7 +32,7 @@ for rodadas=1:nRodadas
     entropia(rodadas) = mean(mean((max(-log2(matriz).*matriz,0) + max(-log2(1-matriz).*(1-matriz),0))));
 end
 
-graphName = ["graphs/exp3/feistelKey.png"];
+graphName = ["graphs/exp3/feistelHill16KeyMultiK.png"];
 plot(entropia)
 legend(["Feistel"]);
 title(["Entropia"]);
