@@ -5,7 +5,7 @@ blocoSize = 32;
 
 cols = size(K)(1);
 lastBit = size(K)(1)*size(K)(1);
-subkTemp = K(1:lastBit);
+subKTemp = K(1:lastBit);
 subK = K;
 
 KLength = length(K);
@@ -13,12 +13,14 @@ for i=1:rodadas
 
 	bit = mod(rodadas, KLength) + 1;
 	
-	%K(bit) = ~K(bit); %inverte um dos bits da chave K
+	subK(bit) = ~subK(bit); %inverte um dos bits da chave K
 
-	subkTemp = [subkTemp(lastBit) subkTemp(1:lastBit-1)];
-	for k=1:cols
-		subK(k:cols) = subkTemp(k:cols);
-	end
+	%MultiK com Shift
+	%subKTemp = [subKTemp(lastBit) subKTemp(1:lastBit-1)];
+	%for Kindex=1:cols
+	%	indexTemp = cols*Kindex - cols + 1;
+	%	subK(Kindex:cols) = subKTemp(indexTemp:cols*Kindex);
+	%end
 
 	CR = C(blocoSize+1:2*blocoSize);
 	
