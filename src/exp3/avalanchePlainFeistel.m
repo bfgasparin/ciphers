@@ -1,7 +1,7 @@
 addpath('/vagrant/src/cipher');
 addpath('/vagrant/src/cipher/exp3');
 
-nBits = 8;
+nBits = 64;
 nRepeticoes = 100;
 nRodadas = 25;
 
@@ -11,7 +11,7 @@ for rodadas=1:nRodadas
     matriz = zeros(nBits,nBits);
     for repeticoes=1:nRepeticoes;
         for bit=1:nBits
-            K = rand(3:3)>.5; %obtem uma chave aleatoria
+            K = rand(16:16)>.5; %obtem uma chave aleatoria
 
             P1 = rand(1,nBits)>.5; %obtem um bloco de bits aleatorio
             C1 = feistel(P1,K,rodadas);
@@ -27,11 +27,11 @@ for rodadas=1:nRodadas
     disp(rodadas)
     fflush(stdout);
     matriz = matriz/repeticoes;
-    % Aqui, o max e' utilizado para garantir que log(0) = 0
+    % Aqui, o max e utilizado para garantir que log(0) = 0
     entropia(rodadas) = mean(mean((max(-log2(matriz).*matriz,0) + max(-log2(1-matriz).*(1-matriz),0))));
 end
 
-graphName = ["graphs/exp3/feistelPlain.png"];
+graphName = ["graphs/exp3/feistelHill16PlainMultiK.png"];
 plot(entropia)
 legend(["Feistel"]);
 title(["Entropia"]);

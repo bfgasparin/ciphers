@@ -27,7 +27,7 @@ for rodadas=1:nRodadas
     disp(rodadas)
     fflush(stdout);
     matriz = matriz/nRepeticoes;
-    % Aqui, o max e' utilizado para garantir que log(0) = 0
+    % Aqui, o max e utilizado para garantir que log(0) = 0
     entropia(rodadas) = mean(mean((max(-log2(matriz).*matriz,0) + max(-log2(1-matriz).*(1-matriz),0))));
 end
 
