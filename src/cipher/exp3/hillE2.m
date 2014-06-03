@@ -1,19 +1,20 @@
 function C = hillE2(P,K)
 
 sizeP = size(P)(2);
+sizeK = size(K)(2);
 
-auxP = zeros(0,16);
+auxP = zeros(0,sizeK);
 remain = 0;
 
 i = 1;
 while i <= sizeP
-  if ((i + 15) > sizeP)
-  	remain = i+15 - sizeP;
+  if ((i +  (sizeK - 1) ) > sizeP)
+  	remain = i+ (sizeK - 1)  - sizeP;
   	auxP = [auxP; [P(i:sizeP) zeros(1, remain)]];
   else
-	auxP = [auxP; P(i:i+15)];
+	auxP = [auxP; P(i:i+ (sizeK - 1) )];
   endif
-  i = i+16;  
+  i = i+sizeK;  
 end  
 
 P = (mod(K*(auxP'), 2))(:)';
