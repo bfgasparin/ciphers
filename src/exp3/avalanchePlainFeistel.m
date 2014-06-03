@@ -31,7 +31,7 @@ for rodadas=1:nRodadas
     entropia(rodadas) = mean(mean((max(-log2(matriz).*matriz,0) + max(-log2(1-matriz).*(1-matriz),0))));
 end
 
-graphName = ["graphs/exp3/feistelHill16PlainMultiK.png"];
+graphName = ["graphs/exp3/feistelHillShift16PlainMultiK.png"];
 plot(entropia)
 legend(["Feistel"]);
 title(["Entropia"]);
