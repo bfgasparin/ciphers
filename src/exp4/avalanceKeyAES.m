@@ -1,6 +1,6 @@
 addpath('/vagrant/src/cipher');
 addpath('/vagrant/src/util');
 
-C = AES('text', 'key');
+C = AESE('text', 'key');
 
-echo(C);
+disp(C);

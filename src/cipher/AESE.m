@@ -1,10 +1,10 @@
 function C = AESE(P,K)
 
-SBox = zeros(16, 16);
-for key=1:255
-    SBox[key] key;
+sBox = zeros(16, 16);
+for key=1:256
+    sBox(key)=key-1;
 end
 
-C = SBox;
+C = sBox';
 
 end
