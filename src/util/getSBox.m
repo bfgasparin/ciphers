@@ -4,12 +4,11 @@ function sbox = getSBox(p, n, poliIrredutivel)
 
 	for i=1:z
 
-		#polinomio = poliGet(i, p, n);
-		#sbox(i) = decimalGet(polinomio, p);
 		polinomioDecimal = i-1;
 		polinomio = poliGet(polinomioDecimal, p, n);
 		
-		posicao = getPosicaoSBox(p, n, polinomio);
+		#posicao = getPosicaoSBox(p, n, polinomio);
+		posicao = i;
 		
 		inverso = euclidesEstendidoPolinomial(polinomio, poliIrredutivel, p);
 		
