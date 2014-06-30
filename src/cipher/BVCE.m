@@ -39,7 +39,8 @@ function C = BVCE(P,K, rodadas, sbox)
 		K3 = sbox(decimalGet(K3, p) + 1);
  		K4 = sbox(decimalGet(K4, p) + 1);
 
- 		Kr = [poliGet(K4, p, n) poliGet(K1, p, n) poliGet(K2, p, n)  poliGet(K3, p, n)];
+ 		Kr = shift(Kr, 3);
+ 		Kr = [poliGet(K1, p, n) poliGet(K2, p, n)  poliGet(K3, p, n) poliGet(K4, p, n)];
 	end
 
 end
