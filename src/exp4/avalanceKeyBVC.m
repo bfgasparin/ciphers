@@ -46,7 +46,7 @@ end
 
 graphName = ["graphs/exp4/final/bgcKey11111.png"];
 plot(entropia)
-legend(["Feistel"]);
+legend(["BVC"]);
 title(["Entropia"]);
 xlabel('rodadas');
 ylabel('Entropia');
