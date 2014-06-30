@@ -15,10 +15,14 @@ for rodadas=1:nRodadas
             P1 = rand(1,nBits)>.5; %obtem uma texto de bits aleatoria
             K = rand(1:nBits)>.5; %obtem uma chave aleatoria
 
+            P1 = convertBoolToInt(P1);
+            K = convertBoolToInt(K);
+
             C1 = BVCE(P1,K,rodadas);
 
             P2 = P1;
             P2(bit) = ~P2(bit); %inverte um dos bits da bloco de texto
+            P2 = convertBoolToInt(P2);
             C2 = BVCE(P2,K,rodadas);
 
             %computa o que mudou na cifra
