@@ -29,6 +29,22 @@ To run the octave files, execute:
 
 	$ octave -p src/ src/<filename>
 
+For the experiences 3 and 4, you must execute the following scripts:
+
+1 - For key avalanche:
+
+	$ octave -p src/ src/exp3/avalancheKeyFeistel.m  
+	$ octave -p src/ src/exp4/avalanceKeyBVC.m 
+
+2 - For plain text avalanche:
+
+	$ octave -p src/ src/exp3/avalanchePlainFeistel.m 
+	$ octave -p src/ src/exp4/avalanchePlainBVC.m 
+
+**Obs:** For the diferent tests for expecience 3, we changed the variables in 
+avalanche*Feistel.m, like key length, and we swhitched the roundKey 
+between shifting the key or applying bit a bit mod in the 
+'src/cipher/feistel.m'. 
 
 [vagrant_url]: http://www.vagrantup.com
 [virtual_box_url]: https://www.virtualbox.org

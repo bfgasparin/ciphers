@@ -2,6 +2,12 @@ addpath('/vagrant/src/cipher');
 addpath('/vagrant/src/util');
 addpath('/vagrant/src/corposFinitosUtil');
 
+
+% To execute this scripts, go to the root path of the project and execute: 
+%     $ octave -p src/ src/exp4/avalanchePlainBVC.m 
+%
+% It saves the result into a a png graph named 'bgcPlain11111' into 'graphs/exp4/final' directory.
+
 nBits = 16;
 nRepeticoes = 100;
 nRodadas = 25;
