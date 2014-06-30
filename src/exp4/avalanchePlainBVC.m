@@ -5,25 +5,31 @@ addpath('/vagrant/src/corposFinitosUtil');
 nBits = 16;
 nRepeticoes = 100;
 nRodadas = 25;
+p = 2;
+n = 4;
 
 entropia = zeros(1,nRodadas);
+
+poliIrredutiveis = irredutiveisGF(p, n);
+poliIrredutivel = poliIrredutiveis(3,:);
+sbox = getSBox(p, n, poliIrredutivel);
 
 for rodadas=1:nRodadas
     matriz = zeros(nBits,nBits);
     for repeticoes=1:nRepeticoes;
         for bit=1:nBits
             P1 = rand(1,nBits)>.5; %obtem uma texto de bits aleatoria
-            K = rand(1:nBits)>.5; %obtem uma chave aleatoria
+            K = rand(1,nBits)>.5; %obtem uma chave aleatoria
 
             P1 = convertBoolToInt(P1);
             K = convertBoolToInt(K);
 
-            C1 = BVCE(P1,K,rodadas);
+            C1 = BVCE(P1,K,rodadas,sbox);
 
             P2 = P1;
             P2(bit) = ~P2(bit); %inverte um dos bits da bloco de texto
             P2 = convertBoolToInt(P2);
-            C2 = BVCE(P2,K,rodadas);
+            C2 = BVCE(P2,K,rodadas,sbox);
 
             %computa o que mudou na cifra
             matriz(bit,:) = matriz(bit,:) + xor(C1,C2);
