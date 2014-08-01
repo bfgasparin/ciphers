@@ -1,3 +1,7 @@
+addpath('/vagrant/src/util');
+addpath('/vagrant/src/corposFinitosUtil');
+addpath('/vagrant/src/exp5');
+
 tic
 menor=3;
 maior=1000;%checar intervalo
