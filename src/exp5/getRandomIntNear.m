@@ -10,9 +10,9 @@ function [k, q, n] = getRandomIntNear(N)
 	 
 	q = 0;
 	sum = maxq - minq;
-	if sum == 0
-	  sum = 1;
-	end 
+	if sum == 0 || sum == 1
+	  sum = 2;
+	end
 	while mod(q,2)==0
 	  q = minq + randi(sum);
     end
