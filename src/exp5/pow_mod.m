@@ -1,4 +1,4 @@
-function  res = pegar_mod(base, e, n)
+function  res = pow_mod(base, e, n)
     b=dec2bin(e);
     k=size(b,2);
     c=0;
