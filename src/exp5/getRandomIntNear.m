@@ -1,4 +1,4 @@
-function [k, q, n] = getRandomIntNear(N)
+function [n, k, q] = getRandomIntNear(N)
 	min = ceil(0.9*N);
 	max = ceil(1.1*N);
 	maxk = log2(max);
