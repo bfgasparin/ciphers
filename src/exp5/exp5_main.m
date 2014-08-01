@@ -5,8 +5,8 @@ addpath('/vagrant/src/exp5');
 setenv('GNUTERM', 'X11');
 
 findPrimeGraph = [];
-execucoesPorTentativa = 10;
-totalForward = 11;
+execucoesPorTentativa = 25;
+totalForward = 10;
 %A partir de 1000000000 ele demora mais de 100.000 tentivas (com mais de 4h de execucao)
 randonNBase = 100;
 
