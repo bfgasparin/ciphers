@@ -2,24 +2,18 @@ addpath('/vagrant/src/util');
 addpath('/vagrant/src/corposFinitosUtil');
 addpath('/vagrant/src/exp5');
 
-setenv('GNUTERM', 'X11');
-
 findPrimeGraph = [];
-execucoesPorTentativa = 25;
-totalForward = 10;
+execucoesPorTentativa = 20;
+totalForward = 30;
 %A partir de 1000000000 ele demora mais de 100.000 tentivas (com mais de 4h de execucao)
-randonNBase = 100;
+randonNBase = 1000;
 
 randonNBaseOrig = randonNBase;
-for baseCalc=0:totalForward
+graphIndex = 0;
+while (randonNBase <= 400000000)
 	mediaTentativasExec = 0;
-	if mod(baseCalc, 2) == 0
-		randonNBase = randonNBaseOrig * 10;
-		randonNBaseOrig = randonNBase;
-	else
-		randonNBase = randonNBaseOrig + (randonNBaseOrig/2);
-	end	
-	
+	randonNBase = randonNBase*2;
+		
 	randonNBase
 
 	for exec=1:execucoesPorTentativa
@@ -60,15 +54,19 @@ for baseCalc=0:totalForward
 		mediaTentativasExec = mediaTentativasExec + findPrimeTries;
 	end
 	mediaTentativasExec = ceil(mediaTentativasExec / execucoesPorTentativa)
-
-	findPrimeGraph(baseCalc+1) = mediaTentativasExec;
+	
+    graphIndex = graphIndex + 1;
+	baseN(graphIndex+1) = uint64(randonNBase);		
+	tentativas(graphIndex+1) = mediaTentativasExec;
+	% findPrimeGraph(graphIndex+1) = mediaTentativasExec;
 end
 findPrimeGraph
 
-%graphName = ["graphs/exp5/findPrimeNumbers.png"];
-%plot(findPrimeGraph)
-%legend(["Tentativas para encontrar numeros primos"]);
-%title(["Numeros Primos"]);
-%xlabel('range primos');
-%ylabel('tentativas');
-%print(graphName)
+graphName = ["graphs/exp5/findPrimeNumbers.png"];
+plot(baseN, tentativas);
+legend(["Tentativas para encontrar numeros primos"]);
+title(["Numeros Primos"]);
+xlabel('range primos');
+ylabel('tentativas');
+print(graphName)
+
