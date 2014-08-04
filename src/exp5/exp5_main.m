@@ -2,15 +2,25 @@ addpath('/vagrant/src/util');
 addpath('/vagrant/src/corposFinitosUtil');
 addpath('/vagrant/src/exp5');
 
+% To call this script, go to project directory:
+%     
+%     cd /<project-dir>
+%
+% And execute 
+%    
+%     octave -p src/ src/exp5/exp5_main.m
+%
+% It saves the the result intoa a png graph called 'findPrimeNumbers.png' into 'graphs/exp5' directory. 
+
 findPrimeGraph = [];
-execucoesPorTentativa = 20;
+execucoesPorTentativa = 50;
 totalForward = 30;
 %A partir de 1000000000 ele demora mais de 100.000 tentivas (com mais de 4h de execucao)
 randonNBase = 1000;
 
 randonNBaseOrig = randonNBase;
 graphIndex = 0;
-while (randonNBase <= 400000000)
+while (randonNBase <= 50000000)
 	mediaTentativasExec = 0;
 	randonNBase = randonNBase*2;
 		

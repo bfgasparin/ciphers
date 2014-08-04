@@ -3,15 +3,15 @@ addpath('/vagrant/src/corposFinitosUtil');
 addpath('/vagrant/src/exp5');
 
 findPrimeGraph = [];
-totalForward = 10;
 randonNBase = 1000;
-baseCalc = 1;
-	
+
+	graphIndex = 1;
 randonNBaseOrig = randonNBase;
-while (randonNBase <= 400000000)
-	randonNBase
+while (randonNBase <= 50000000)
+	randonNBase = randonNBase*2;
+randonNBase
 	count = 0;
-	for exec=1:execucoesPorTentativa
+	for exec=1:1000
 			[nRdn, knRnd, qnRnd] = getRandomIntNear(randonNBase);
 			[n2Rdn, kn2Rnd, qn2Rnd] = getRandomIntNear(randonNBase);
 			
@@ -21,13 +21,14 @@ while (randonNBase <= 400000000)
 			end
 	end
 
-	findPrimeGraph(baseCalc+1) = count/10;
-	baseCalc = baseCalc+1;
+	baseN(graphIndex) = uint64(randonNBase);		
+	tentativas(graphIndex) = count/10;
+	graphIndex = graphIndex+1;
 end
 findPrimeGraph
 
 graphName = ["graphs/exp5/findRelativePrime.png"];
-plot(findPrimeGraph)
+plot(baseN, tentativas);
 legend(["Probabilidade de serem relativamente primos"]);
 title(["Numeros Primos"]);
 xlabel('range primos');
